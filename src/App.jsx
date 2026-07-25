@@ -4,6 +4,11 @@ import './App.css'
 import logo from './assets/logo-dc-web.png'
 import workspace from './assets/dario-workspace.jpg'
 
+import turnofacilServicios from './assets/turnofacil-servicios.webp'
+import turnofacilFecha from './assets/turnofacil-fecha.webp'
+import tramaNidoTienda from './assets/trama-nido-tienda.webp'
+import tramaNidoAdmin from './assets/trama-nido-admin.webp'
+
 import canchaClub from './assets/canchasya-club.webp'
 import canchaReserva from './assets/canchasya-reserva.webp'
 import canchaConfirmacion from './assets/canchasya-confirmacion.png'
@@ -66,6 +71,57 @@ const services = [
 ]
 
 const projects = [
+  {
+    id: 'turnofacil',
+    title: 'TurnoFácil',
+    category: 'Sistema de turnos para comercios',
+    status: 'Demo comercial en local',
+    featured: true,
+    cover: turnofacilServicios,
+    images: [turnofacilServicios, turnofacilFecha],
+    summary:
+      'Turnero online adaptable a barberías, peluquerías, centros de estética y otros negocios que trabajan con reservas.',
+    description: [
+      'TurnoFácil es una demostración comercial creada para mostrar cómo un negocio puede reemplazar los mensajes de ida y vuelta por un proceso de reserva simple y ordenado.',
+      'El cliente puede elegir un servicio, seleccionar al profesional, consultar fechas y horarios disponibles y completar sus datos para confirmar el turno desde el celular o la computadora.',
+      'La propuesta incluye un panel para el comercio y está preparada para evolucionar hacia una conexión con respuestas automáticas de WhatsApp y una base de datos en Supabase. El diseño puede personalizarse para diferentes marcas y rubros.',
+    ],
+    highlights: [
+      'Selección de servicio y profesional',
+      'Calendario y horarios disponibles',
+      'Bloqueo de turnos ocupados',
+      'Panel de gestión para el comercio',
+      'Diseño adaptable a cada rubro',
+      'Preparado para WhatsApp y Supabase',
+    ],
+    technologies: ['React', 'JavaScript', 'CSS', 'Diseño responsive', 'Supabase'],
+  },
+  {
+    id: 'trama-nido',
+    title: 'Trama Nido',
+    category: 'Tienda online autoadministrable',
+    status: 'Sitio publicado',
+    featured: true,
+    cover: tramaNidoTienda,
+    images: [tramaNidoTienda, tramaNidoAdmin],
+    liveUrl: 'https://trama-nido.netlify.app/',
+    summary:
+      'Tienda digital para una marca de prendas artesanales, con carrito de compras y panel privado de administración.',
+    description: [
+      'Trama Nido es una tienda online desarrollada para presentar y comercializar prendas tejidas artesanalmente mediante una identidad visual cálida y personalizada.',
+      'La experiencia organiza productos de entrega inmediata y trabajos a pedido, incorpora carrito de compras, contacto por WhatsApp y una navegación responsive pensada para celulares y computadoras.',
+      'Además, cuenta con un acceso privado conectado con Supabase para que la propietaria pueda administrar el contenido de la tienda sin tener que modificar directamente el código del sitio.',
+    ],
+    highlights: [
+      'Catálogo de productos',
+      'Carrito de compras',
+      'Entrega inmediata y trabajos a pedido',
+      'Panel privado de administración',
+      'Autenticación con Supabase',
+      'Contacto directo por WhatsApp',
+    ],
+    technologies: ['React', 'Supabase', 'JavaScript', 'CSS', 'E-commerce'],
+  },
   {
     id: 'canchasya',
     title: 'CanchasYa!',
@@ -201,6 +257,7 @@ const technologies = [
   'NestJS',
   'MySQL',
   'PostgreSQL',
+  'Supabase',
   'Git',
   'GitHub',
 ]
@@ -318,7 +375,7 @@ function App() {
                 </a>
               </div>
               <div className="hero-stats" aria-label="Información profesional destacada">
-                <div><strong>6</strong><span>proyectos destacados</span></div>
+                <div><strong>8</strong><span>proyectos realizados</span></div>
                 <div><strong>Full Stack</strong><span>frontend y backend</span></div>
                 <div><strong>100%</strong><span>adaptado a celulares</span></div>
               </div>
@@ -369,41 +426,50 @@ function App() {
                 <h2>Proyectos que combinan diseño, lógica y necesidades reales.</h2>
               </div>
               <p>
-                Aplicaciones completas, herramientas personales y sitios institucionales desarrollados con diferentes objetivos.
+                Soluciones comerciales, aplicaciones completas, herramientas personales y sitios profesionales desarrollados para necesidades diferentes.
               </p>
             </div>
 
-            <div className="featured-grid">
-              {featuredProjects.map((project) => (
-                <article className="project-card project-card-featured" key={project.id}>
-                  <button className="project-image-button" type="button" onClick={() => openProject(project)} aria-label={`Ver detalles de ${project.title}`}>
-                    <img src={project.cover} alt={`Vista previa de ${project.title}`} />
-                    <span className="image-overlay">Ver proyecto</span>
-                  </button>
-                  <div className="project-content">
-                    <div className="project-meta">
-                      <span>{project.category}</span>
-                      <span className="status-badge">{project.status}</span>
-                    </div>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <div className="project-tags">
-                      {project.technologies.slice(0, 4).map((technology) => (
-                        <span key={technology}>{technology}</span>
-                      ))}
-                    </div>
-                    <button className="text-button" type="button" onClick={() => openProject(project)}>
-                      Conocer el proyecto <ArrowIcon />
+            <div className="projects-showcase">
+              <div className="featured-grid">
+                {featuredProjects.map((project) => (
+                  <article className="project-card project-card-featured" key={project.id}>
+                    <button className="project-image-button" type="button" onClick={() => openProject(project)} aria-label={`Ver detalles de ${project.title}`}>
+                      <img src={project.cover} alt={`Vista previa de ${project.title}`} />
+                      <span className="image-overlay">Explorar proyecto</span>
                     </button>
-                  </div>
-                </article>
-              ))}
+                    <div className="project-content">
+                      <div className="project-meta">
+                        <span>{project.category}</span>
+                        <span className="status-badge">{project.status}</span>
+                      </div>
+                      <h3>{project.title}</h3>
+                      <p>{project.summary}</p>
+                      <div className="project-tags">
+                        {project.technologies.slice(0, 4).map((technology) => (
+                          <span key={technology}>{technology}</span>
+                        ))}
+                      </div>
+                      <div className="project-actions">
+                        <button className="text-button" type="button" onClick={() => openProject(project)}>
+                          Conocer el proyecto <ArrowIcon />
+                        </button>
+                        {project.liveUrl && (
+                          <a className="project-live-link" href={project.liveUrl} target="_blank" rel="noreferrer">
+                            Ver sitio <ExternalIcon />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
 
             <div className="institutional-title">
               <span className="eyebrow">Sitios profesionales</span>
               <h3>Presencia digital personalizada para cada profesional.</h3>
-              <p>Estos proyectos se encuentran en etapa de cierre; sus dominios públicos se compartirán una vez finalizado el proceso con cada profesional.</p>
+              <p>Propuestas creadas con una identidad visual propia, una estructura clara y una experiencia adaptada a cada profesional.</p>
             </div>
 
             <div className="institutional-grid">
@@ -551,9 +617,16 @@ function App() {
               <div className="project-tags modal-tags">
                 {selectedProject.technologies.map((technology) => <span key={technology}>{technology}</span>)}
               </div>
-              <a className="button button-primary modal-cta" href={CONTACT.whatsapp} target="_blank" rel="noreferrer">
-                Consultar por un proyecto similar <ArrowIcon />
-              </a>
+              <div className="modal-actions">
+                {selectedProject.liveUrl && (
+                  <a className="button button-primary modal-cta" href={selectedProject.liveUrl} target="_blank" rel="noreferrer">
+                    Visitar sitio publicado <ExternalIcon />
+                  </a>
+                )}
+                <a className={`button modal-cta ${selectedProject.liveUrl ? 'button-outline-dark' : 'button-primary'}`} href={CONTACT.whatsapp} target="_blank" rel="noreferrer">
+                  Consultar por uno similar <ArrowIcon />
+                </a>
+              </div>
             </div>
           </section>
         </div>
