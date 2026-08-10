@@ -42,7 +42,7 @@ import dritoRobot from './assets/drito-robot.webp'
 import dritoMarca from './assets/drito-marca.webp'
 
 const CONTACT = {
-  whatsapp: 'https://wa.me/5492983340902?text=Hola%20Dario%2C%20vi%20tu%20portfolio%20de%20DC%20Web%20y%20quisiera%20consultarte%20por%20una%20p%C3%A1gina%20web.',
+  whatsapp: 'https://wa.me/5492983419423?text=Hola%20Dario%2C%20vi%20tu%20portfolio%20de%20DC%20Web%20y%20quisiera%20consultarte%20por%20una%20p%C3%A1gina%20web.',
   email: 'mailto:dariowcabrera@gmail.com',
   linkedin: 'https://www.linkedin.com/in/dario-cabrera3105',
   github: 'https://github.com/DarioWCabrera',
