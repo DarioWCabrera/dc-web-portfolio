@@ -1525,3 +1525,40 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* ===== FotoLive + Drito ===== */
+.project-tags span {
+  position: relative;
+}
+
+.modal-video-block {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.modal-video-label {
+  color: #667892;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modal-video {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  border: 1px solid rgba(151, 181, 216, 0.55);
+  border-radius: 18px;
+  background: #050d1d;
+  box-shadow: 0 18px 42px rgba(7, 24, 54, 0.16);
+}
+
+@media (max-width: 760px) {
+  .modal-video {
+    max-height: 360px;
+    border-radius: 14px;
+  }
+}

@@ -29,6 +29,18 @@ import rominaWeb from './assets/romina-web.webp'
 import marielaWeb from './assets/mariela-web.webp'
 import jonathanWeb from './assets/jonathan-web.webp'
 
+import fotoLiveHero from './assets/fotolive-hero.png'
+import fotoLiveDemo from './assets/fotolive-demo.png'
+import fotoLivePanel from './assets/fotolive-panel.png'
+import fotoLiveConfig from './assets/fotolive-config.png'
+import fotoLiveInvitados from './assets/fotolive-invitados.png'
+
+import dritoReportes from './assets/drito-reportes.png'
+import dritoCaja from './assets/drito-caja.png'
+import dritoCuentas from './assets/drito-cuentas-corrientes.png'
+import dritoRobot from './assets/drito-robot.webp'
+import dritoMarca from './assets/drito-marca.webp'
+
 const CONTACT = {
   whatsapp: 'https://wa.me/5492983340902?text=Hola%20Dario%2C%20vi%20tu%20portfolio%20de%20DC%20Web%20y%20quisiera%20consultarte%20por%20una%20p%C3%A1gina%20web.',
   email: 'mailto:dariowcabrera@gmail.com',
@@ -71,6 +83,59 @@ const services = [
 ]
 
 const projects = [
+  {
+    id: 'drito',
+    title: 'Drito',
+    category: 'Sistema web de gestión comercial',
+    status: 'Producto Full Stack',
+    featured: true,
+    cover: dritoReportes,
+    images: [dritoReportes, dritoCaja, dritoCuentas, dritoRobot, dritoMarca],
+    video: '/videos/drito-demo.mp4',
+    summary:
+      'Sistema de gestión para centralizar ventas, caja, stock, clientes, proveedores, cuentas corrientes y análisis financiero desde un solo lugar.',
+    description: [
+      'Drito es un sistema web de gestión desarrollado para comercios y pequeñas empresas que necesitan ordenar su operación diaria dentro de una única plataforma.',
+      'La solución integra clientes, productos, proveedores, compras, caja, gastos, reportes, stock, cotizaciones, ventas y cuentas corrientes, con usuarios y permisos para acompañar distintos roles dentro del negocio.',
+      'Además de registrar la actividad, Drito transforma los movimientos del comercio en información útil mediante reportes financieros, seguimiento de ingresos y egresos y control de saldos. La arquitectura está pensada para crecer y sumar nuevas funcionalidades e integraciones.',
+    ],
+    highlights: [
+      'Clientes, productos y proveedores',
+      'Compras, ventas y cotizaciones',
+      'Stock y movimientos',
+      'Caja, gastos y cuentas corrientes',
+      'Reportes y análisis financiero',
+      'Usuarios, roles y permisos',
+      'Arquitectura preparada para integraciones',
+    ],
+    technologies: ['React', 'TypeScript', 'NestJS', 'PostgreSQL', 'Supabase', 'Full Stack'],
+  },
+  {
+    id: 'fotolive',
+    title: 'FotoLive',
+    category: 'Plataforma interactiva para eventos',
+    status: 'Demo funcional',
+    featured: true,
+    cover: fotoLiveHero,
+    images: [fotoLiveHero, fotoLiveDemo, fotoLivePanel, fotoLiveConfig, fotoLiveInvitados],
+    summary:
+      'Experiencia para eventos que permite a los invitados compartir fotos desde su celular y proyectarlas en vivo con moderación asistida por IA.',
+    description: [
+      'FotoLive transforma las fotografías de los invitados en una experiencia participativa durante el evento. Desde un QR pueden ingresar con su celular, tomar una foto o elegirla desde la galería y enviarla junto con un nombre o mensaje, sin descargar aplicaciones.',
+      'Del lado profesional, el DJ u organizador cuenta con un panel para controlar la recepción de fotografías, revisar el contenido, administrar el evento y abrir la pantalla de proyección en tiempo real.',
+      'Uno de los puntos centrales del proyecto es la moderación asistida por IA: el sistema puede ayudar a identificar fotografías seguras para agilizar su aprobación, mientras que el contenido dudoso queda disponible para revisión humana. De esta manera se automatiza parte del flujo sin perder el control del evento.',
+    ],
+    highlights: [
+      'Participación mediante QR, sin descargar apps',
+      'Carga de fotos y mensajes desde el celular',
+      'Proyección de fotografías en tiempo real',
+      'Panel profesional para DJ u organizador',
+      'Moderación manual y asistida por IA',
+      'Revisión humana del contenido dudoso',
+      'Personalización visual de cada evento',
+    ],
+    technologies: ['React', 'JavaScript', 'IA aplicada', 'Diseño responsive', 'Experiencia en tiempo real'],
+  },
   {
     id: 'turnofacil',
     title: 'TurnoFácil',
@@ -375,7 +440,7 @@ function App() {
                 </a>
               </div>
               <div className="hero-stats" aria-label="Información profesional destacada">
-                <div><strong>8</strong><span>proyectos realizados</span></div>
+                <div><strong>Proyectos</strong><span>reales y en desarrollo</span></div>
                 <div><strong>Full Stack</strong><span>frontend y backend</span></div>
                 <div><strong>100%</strong><span>adaptado a celulares</span></div>
               </div>
@@ -600,6 +665,15 @@ function App() {
                       <img src={image} alt="" />
                     </button>
                   ))}
+                </div>
+              )}
+              {selectedProject.video && (
+                <div className="modal-video-block">
+                  <span className="modal-video-label">Presentación del proyecto</span>
+                  <video className="modal-video" controls preload="metadata" playsInline>
+                    <source src={selectedProject.video} type="video/mp4" />
+                    Tu navegador no puede reproducir este video.
+                  </video>
                 </div>
               )}
             </div>
