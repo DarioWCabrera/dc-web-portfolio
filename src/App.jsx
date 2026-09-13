@@ -41,6 +41,10 @@ import dritoCuentas from './assets/drito-cuentas-corrientes.png'
 import dritoRobot from './assets/drito-robot.webp'
 import dritoMarca from './assets/drito-marca.webp'
 
+import invitationOlivia from './assets/invitation-olivia.jpg'
+import invitationClari from './assets/invitation-clari.jpg'
+import invitationWedding from './assets/invitation-wedding.png'
+
 const CONTACT = {
   whatsapp: 'https://wa.me/5492983419423?text=Hola%20Dario%2C%20vi%20tu%20portfolio%20de%20DC%20Web%20y%20quisiera%20consultarte%20por%20una%20p%C3%A1gina%20web.',
   email: 'mailto:dariowcabrera@gmail.com',
@@ -50,7 +54,9 @@ const CONTACT = {
 }
 
 const PRODUCT_LINKS = {
-  invitationsDemo: 'https://invitaciones.dcweb-dev.com.ar/olivia',
+  oliviaInvitation: 'https://olivia-xv-demo.pages.dev/',
+  clariInvitation: 'https://clari-xv-demo.pages.dev/',
+  weddingInvitation: 'https://casamiento-demo.pages.dev/',
   fotolive: 'https://fotolive.com.ar/',
 }
 
@@ -63,6 +69,36 @@ const invitationFeatures = [
   ['🍽️', 'Menú especial'],
   ['🎶', 'Playlist colaborativa'],
   ['📊', 'Panel de invitados'],
+]
+
+const invitationDemos = [
+  {
+    id: 'olivia',
+    label: 'XV · Midnight',
+    title: 'Olivia',
+    description: 'Una propuesta elegante en azul noche, con una estética moderna y sofisticada.',
+    cover: invitationOlivia,
+    url: PRODUCT_LINKS.oliviaInvitation,
+    theme: 'midnight',
+  },
+  {
+    id: 'clari',
+    label: 'XV · Bloom',
+    title: 'Clari',
+    description: 'Una invitación suave y luminosa en tonos pastel, pensada para una celebración delicada.',
+    cover: invitationClari,
+    url: PRODUCT_LINKS.clariInvitation,
+    theme: 'bloom',
+  },
+  {
+    id: 'wedding',
+    label: 'Casamiento · Sage',
+    title: 'Mora & Benja',
+    description: 'Una experiencia romántica en tonos salvia, marfil y rosa empolvado para celebrar el gran día.',
+    cover: invitationWedding,
+    url: PRODUCT_LINKS.weddingInvitation,
+    theme: 'sage',
+  },
 ]
 
 const services = [
@@ -463,7 +499,7 @@ function App() {
 
           <nav className={`main-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Navegación principal">
             <a href="#servicios" onClick={closeMenu}>Servicios</a>
-            <a href="#invitaciones" onClick={closeMenu}>Invitaciones</a>
+            <a href="#invitaciones" onClick={closeMenu}>Invitaciones digitales</a>
             <a href={PRODUCT_LINKS.fotolive} target="_blank" rel="noreferrer" onClick={closeMenu}>FotoLive</a>
             <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
             <a href="#sobre-mi" onClick={closeMenu}>Sobre mí</a>
@@ -541,35 +577,50 @@ function App() {
         </section>
 
         <section className="section invitations-section" id="invitaciones">
-          <div className="container invitations-layout">
-            <div className="invitation-showcase" aria-label="Ejemplo de invitación digital para fiesta de XV">
-              <div className="invitation-browser">
-                <div className="invitation-browser-bar">
-                  <span />
-                  <span />
-                  <span />
-                  <small>invitaciones.dcweb-dev.com.ar/olivia</small>
-                </div>
-                <div className="invitation-preview">
-                  <span className="invitation-kicker">MIS XV</span>
-                  <strong>OLIVIA</strong>
-                  <span className="invitation-date">Una invitación para vivir la previa del evento.</span>
-                  <div className="invitation-countdown" aria-hidden="true">
-                    <span><b>24</b><small>días</small></span>
-                    <span><b>08</b><small>horas</small></span>
-                    <span><b>35</b><small>min</small></span>
-                  </div>
-                  <span className="invitation-demo-pill">Demo interactiva</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="invitations-copy">
+          <div className="container">
+            <div className="invitation-section-heading">
               <span className="eyebrow">Invitaciones digitales</span>
               <h2>Una invitación que no termina en una imagen.</h2>
               <p>
-                Creamos una experiencia web personalizada para XV, casamientos, cumpleaños y eventos. Tus invitados reciben un enlace, entran desde el celular y encuentran todo en un solo lugar.
+                Creamos experiencias web personalizadas para XV, casamientos, cumpleaños y eventos. Cada invitación puede combinar diseño, música, cuenta regresiva, ubicación, confirmaciones y mucho más.
               </p>
+            </div>
+
+            <div className="invitation-demo-grid">
+              {invitationDemos.map((demo) => (
+                <article className={`invitation-demo-card invitation-demo-${demo.theme}`} key={demo.id}>
+                  <a
+                    className="invitation-demo-image"
+                    href={demo.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Ver demo de ${demo.title}`}
+                  >
+                    <img src={demo.cover} alt={`Vista previa de la invitación ${demo.title}`} />
+                    <span className="invitation-demo-overlay">
+                      <small>{demo.label}</small>
+                      <strong>{demo.title}</strong>
+                    </span>
+                  </a>
+
+                  <div className="invitation-demo-content">
+                    <span className="invitation-demo-type">{demo.label}</span>
+                    <h3>{demo.title}</h3>
+                    <p>{demo.description}</p>
+                    <a className="invitation-demo-link" href={demo.url} target="_blank" rel="noreferrer">
+                      Ver demo <ExternalIcon />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="invitation-bottom-panel">
+              <div>
+                <span className="eyebrow">Todo en un mismo enlace</span>
+                <h3>Personalizamos la experiencia para que represente tu evento.</h3>
+              </div>
+
               <div className="invitation-features">
                 {invitationFeatures.map(([icon, feature]) => (
                   <div className="invitation-feature" key={feature}>
@@ -578,12 +629,13 @@ function App() {
                   </div>
                 ))}
               </div>
+
               <div className="invitation-actions">
-                <a className="button button-primary" href={PRODUCT_LINKS.invitationsDemo} target="_blank" rel="noreferrer">
-                  Ver demo de XV <ExternalIcon />
+                <a className="button button-primary" href={CONTACT.whatsapp} target="_blank" rel="noreferrer">
+                  Quiero mi invitación
                 </a>
-                <a className="button invitation-secondary" href={CONTACT.whatsapp} target="_blank" rel="noreferrer">
-                  Quiero una invitación
+                <a className="button invitation-secondary" href={PRODUCT_LINKS.oliviaInvitation} target="_blank" rel="noreferrer">
+                  Ver una demo completa <ExternalIcon />
                 </a>
               </div>
             </div>
