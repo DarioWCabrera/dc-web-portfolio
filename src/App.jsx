@@ -50,7 +50,7 @@ const CONTACT = {
 }
 
 const PRODUCT_LINKS = {
-  invitationsDemo: 'https://invitaciones.dcweb.com.ar/olivia',
+  invitationsDemo: 'https://invitaciones.dcweb-dev.com.ar/olivia',
   fotolive: 'https://fotolive.com.ar/',
 }
 
@@ -548,7 +548,7 @@ function App() {
                   <span />
                   <span />
                   <span />
-                  <small>invitaciones.dcweb.com.ar/olivia</small>
+                  <small>invitaciones.dcweb-dev.com.ar/olivia</small>
                 </div>
                 <div className="invitation-preview">
                   <span className="invitation-kicker">MIS XV</span>
