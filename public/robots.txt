@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dariocabrera-dev.netlify.app/sitemap.xml
+Sitemap: https://dcweb-dev.com.ar/sitemap.xml
